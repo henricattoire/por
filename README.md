@@ -34,7 +34,7 @@ offered (which would be lost when implemented in a language like C).
     
     real    0m10.973s
     user	0m0.382s
-    sys	    0m6.572s
+    sys     0m6.572s
     $ time walk /usr | sor 'test -f' >/dev/null
     
     real    8m30.253s
@@ -45,7 +45,7 @@ offered (which would be lost when implemented in a language like C).
     
     real    0m29.429s
     user	0m8.939s
-    sys	    0m19.172s
+    sys     0m19.172s
 
 History
 -------
