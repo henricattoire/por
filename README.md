@@ -34,9 +34,10 @@ Performance
 -----------
 
 Because `find` implements its predicates in-process, it performs much better
-than both `por` and `sor`. The objective with `por` was essentially to speed
-up `sor` to the point of usability while still retaining the flexibility
-offered (which would be lost when implemented in a language like C).
+than both `por` and `sor`. But `sor` is just awful, even when handling relatively
+small amounts of data. Wanting to improve the speed of `sor` while still retaining
+its flexibility ([reflection][reflection]), I decided to go with Perl.
+
 
     $ time find /usr -type f >/dev/null
     
@@ -54,6 +55,8 @@ offered (which would be lost when implemented in a language like C).
     real    0m29.429s
     user	0m8.939s
     sys     0m19.172s
+    
+[reflection]: https://en.wikipedia.org/wiki/Reflective_programming
 
 History
 -------
