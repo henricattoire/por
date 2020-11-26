@@ -19,6 +19,14 @@ If your filenames might contain newlines, you can say
 
     walk -0 | grep -z foo | por -0 -f
 
+If you supply more than one test, `por` chains them together using logical **or** (hence the name). 
+But in some situations I found that using logical **and** to chain tests is better, so I added a -
+
+    walk | por --and -f -x
+
+`and` option to trigger `por` into using logical **and** (and not logical **or**).
+
+
 [find]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/find.html
 [walk]: https://github.com/google/walk
 
