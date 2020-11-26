@@ -1,0 +1,34 @@
+.TH POR 1 2020-11-26
+.SH NAME
+por \- combine Perl file tests with logical or
+.SH SYNOPSIS
+.B por
+.RB [\| \-0 | \-a \]
+.IR TEST ...
+.SH DESCRIPTION
+Read paths from standard input. For each path, evaluate the arguments as a (stacked)
+.BR perl (1)
+file test with the path as the first argument. Print the path to standard output
+if the test succeeds.
+.SH OPTIONS
+.TP
+\fB\-0\fP, \fB\-\-null\fP
+Filenames are terminated using the null character \fB\\0\fP instead of
+newlines, for both input and output.
+Suitable for use with \fBwalk \-0\fP.
+.TP
+\fB\-a\fP, \fB\-\-and\fP
+Use logical \fBand\fR instead of \fBor\fR.
+.TP
+\fB\-\-help\fP
+Print a summary of the usage of \fBpor\fP and exit.
+.SH TESTS
+Run \fBperldoc -f -X\fR to list different TESTs.
+.SH EXAMPLE
+.EX
+walk /etc | por -f
+.EE
+.SH "SEE ALSO"
+.BR find (1),
+.BR walk (1),
+.BR sor (1)
