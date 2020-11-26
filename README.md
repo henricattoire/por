@@ -44,6 +44,7 @@ its flexibility ([reflection][reflection]), I decided to go with Perl.
     real    0m10.973s
     user	0m0.382s
     sys     0m6.572s
+    
     $ time walk /usr | sor 'test -f' >/dev/null
     
     real    8m30.253s
