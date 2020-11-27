@@ -24,7 +24,7 @@ But in some situations I found that using logical **and** to chain tests is bett
 
     walk | por --and -f -x
 
-`and` option to trigger `por` into using logical **and** (and not logical **or**).
+`and` option to trigger `por` into using logical **and** (instead of logical **or**).
 
 
 [find]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/find.html
