@@ -31,11 +31,7 @@ while (my $arg = shift(@ARGV)) {
   } elsif ($arg =~ /--and|-a/) {
     $logical_or = 0;
   } else {
-    if ($logical_or && $test) {
-      $test .= " || $arg _";
-    } else {
-      $test .= " $arg";
-    }
+    $test .= ($logical_or && $test) ? " || $arg _" : " $arg";
   }
 }
 
