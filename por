@@ -21,17 +21,18 @@ EOF
 
 my ($logical_or, $null_terminate, $need_help, $test) = (1, 0, 0, "");
 
-while (my $arg = shift(@ARGV)) {
-  if ($arg =~ /--help|-h/) {
+foreach (@ARGV) {
+  # current element is stored in $_
+  if ($_ =~ /--help|-h/) {
     print $short_usage;
     print $help;
     exit 1;
-  } elsif ($arg =~ /--null|-0/) {
+  } elsif ($_ =~ /--null|-0/) {
     $null_terminate = 1;
-  } elsif ($arg =~ /--and|-a/) {
+  } elsif ($_ =~ /--and|-a/) {
     $logical_or = 0;
   } else {
-    $test .= ($logical_or && $test) ? " || $arg _" : " $arg";
+    $test .= ($logical_or && $test) ? " || $_ _" : " $_";
   }
 }
 
@@ -45,11 +46,10 @@ if (!$test) {
   local $/ = "\0" if $null_terminate;
 
   my $path;
-  while (<>) {
-    # line of input is stored in $_
+  while (<STDIN>) {
     $path = $_;
     chomp; # remove rs
-    # print path if test (uses $_ as arg by default) returned true
-    print($path) if eval "return ($test)";
+    # file test uses $_ if no argument is given
+    print $path if eval "return ($test)";
   }
 }
