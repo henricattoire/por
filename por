@@ -14,7 +14,7 @@ For each line from standard input, evaluate the specified TESTs under Perl with 
 
     -0, --null              separate filenames by a null character
     -a, --and               use logical and instead of or.
-    --help                  display this help and exit
+    --help                  display this help and exit.
 
 Run 'perldoc -f -X' to list different TESTs.
 EOF
