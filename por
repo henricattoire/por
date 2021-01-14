@@ -19,7 +19,7 @@ For each line from standard input, evaluate the specified TESTs under Perl with 
 Run 'perldoc -f -X' to list different TESTs.
 EOF
 
-my ($logical_or, $null_terminate, $need_help, $test) = (1, 0, 0, "");
+my ($or, $null, $tests) = (1, 0, "");
 
 foreach (@ARGV) {
   # current element is stored in $_
@@ -28,28 +28,28 @@ foreach (@ARGV) {
     print $help;
     exit 1;
   } elsif ($_ =~ /--null|-0/) {
-    $null_terminate = 1;
+    $null = 1;
   } elsif ($_ =~ /--and|-a/) {
-    $logical_or = 0;
+    $or = 0;
   } else {
-    $test .= ($logical_or && $test) ? " || $_ _" : " $_";
+    $tests .= ($or && $tests) ? " || $_ _" : " $_";
   }
 }
 
-if (!$test) {
+if (!$tests) {
   print $short_usage;
   exit 1;
 }
 
 {
   # change input record separator if needed
-  local $/ = "\0" if $null_terminate;
+  local $/ = "\0" if $null;
 
   my $path;
   while (<STDIN>) {
     $path = $_;
     chomp; # remove rs
     # file test uses $_ if no argument is given
-    print $path if eval "return ($test)";
+    print $path if eval "return ($tests)";
   }
 }
