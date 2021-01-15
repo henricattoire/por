@@ -23,13 +23,13 @@ my ($or, $null, $tests) = (1, 0, "");
 
 foreach (@ARGV) {
   # current element is stored in $_
-  if ($_ =~ /--help|-h/) {
+  if (m/--help|-h/) {
     print $short_usage;
     print $help;
     exit 1;
-  } elsif ($_ =~ /--null|-0/) {
+  } elsif (m/--null|-0/) {
     $null = 1;
-  } elsif ($_ =~ /--and|-a/) {
+  } elsif (m/--and|-a/) {
     $or = 0;
   } else {
     $tests .= ($or && $tests) ? " || $_ _" : " $_";
