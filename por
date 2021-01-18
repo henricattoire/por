@@ -32,7 +32,7 @@ foreach (@ARGV) {
   } elsif (m/--and|-a/) {
     $or = 0;
   } else {
-    $tests .= ($or && $tests) ? " || $_ _" : " $_";
+    $tests .= ($or && $tests ne "") ? " || $_ _" : " $_";
   }
 }
 
