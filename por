@@ -2,7 +2,7 @@
 #
 # por (1)
 #
-# Henri Cattoire
+# Copyright (c) 2020 Henri Cattoire. Licensed under the WTFPL license.
 #
 use strict;
 use warnings;
