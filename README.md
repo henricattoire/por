@@ -1,4 +1,4 @@
-`por`
+por
 ================
 
 This repository contains `por`, one of two utility programs that
