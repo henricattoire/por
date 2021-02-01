@@ -9,7 +9,7 @@ use warnings;
 use 5.010;  # so filetest ops can stack
 
 my $short_usage = "Usage: por TEST ...\n";
-my $help = <<'EOF';
+my $help = <<'EOS';
 For each line from standard input, evaluate the specified TESTs under Perl with the line as the argument.
 
     -0, --null              separate filenames by a null character
@@ -17,7 +17,7 @@ For each line from standard input, evaluate the specified TESTs under Perl with 
     --help                  display this help and exit.
 
 Run 'perldoc -f -X' to list different TESTs.
-EOF
+EOS
 
 my ($or, $null, $tests) = (1, 0, "");
 
